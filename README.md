@@ -17,7 +17,6 @@ The small Design panel appears at the bottom-left of the homepage when enabled. 
 - `services/website-development.html`
 - `services/seo.html`
 - `services/social-media-management.html`
-- `services/content-creation.html`
 - `services/paid-ads.html`
 - `services/influencer-marketing.html`
 - `services/affiliate-marketing.html`
