@@ -18,14 +18,28 @@ content="Connect with creators whose communities, style and values make sense fo
 <style>
 
 /* =========================================================
-   SERVICE PAGE RESTRUCTURE
+   SERVICE PAGE
    ========================================================= */
 
+/*
+   IMPORTANT:
+   Do NOT use overflow:hidden on the entire service page.
+   It can prevent vertical touch scrolling on mobile,
+   especially when Lenis / GSAP is also being used.
+*/
+
 .service-page{
-    overflow:hidden;
+    overflow-x:hidden;
+    overflow-y:visible;
+    min-height:100%;
+    touch-action:pan-y;
+    -webkit-overflow-scrolling:touch;
 }
 
-/* HERO */
+
+/* =========================================================
+   HERO
+   ========================================================= */
 
 .service-hero{
     padding:150px 0 95px;
@@ -75,7 +89,10 @@ content="Connect with creators whose communities, style and values make sense fo
     flex-wrap:wrap;
 }
 
-/* VISUAL */
+
+/* =========================================================
+   VISUAL
+   ========================================================= */
 
 .service-visual{
     min-height:430px;
@@ -85,14 +102,19 @@ content="Connect with creators whose communities, style and values make sense fo
     align-items:flex-end;
     padding:42px;
     overflow:hidden;
+
     background:
-        radial-gradient(circle at 75% 75%,
-        rgba(242,68,29,.16) 0,
-        transparent 45%),
-        linear-gradient(135deg,
-        rgba(242,68,29,.07),
-        rgba(255,255,255,.015) 55%,
-        rgba(242,68,29,.04));
+        radial-gradient(
+            circle at 75% 75%,
+            rgba(242,68,29,.16) 0,
+            transparent 45%
+        ),
+        linear-gradient(
+            135deg,
+            rgba(242,68,29,.07),
+            rgba(255,255,255,.015) 55%,
+            rgba(242,68,29,.04)
+        );
 }
 
 .service-visual::before{
@@ -131,7 +153,9 @@ content="Connect with creators whose communities, style and values make sense fo
 }
 
 
-/* INTRO */
+/* =========================================================
+   INTRO
+   ========================================================= */
 
 .service-intro-section{
     padding:85px 0;
@@ -173,7 +197,9 @@ content="Connect with creators whose communities, style and values make sense fo
 }
 
 
-/* SERVICES */
+/* =========================================================
+   SERVICES
+   ========================================================= */
 
 .included-section{
     padding:85px 0 100px;
@@ -207,7 +233,9 @@ content="Connect with creators whose communities, style and values make sense fo
 }
 
 
-/* FEATURE GRID */
+/* =========================================================
+   FEATURE GRID
+   ========================================================= */
 
 .included-grid{
     display:grid;
@@ -255,7 +283,9 @@ content="Connect with creators whose communities, style and values make sense fo
 }
 
 
-/* APPROACH */
+/* =========================================================
+   APPROACH
+   ========================================================= */
 
 .approach-section{
     padding:90px 0;
@@ -307,7 +337,9 @@ content="Connect with creators whose communities, style and values make sense fo
 }
 
 
-/* CTA */
+/* =========================================================
+   CTA
+   ========================================================= */
 
 .service-cta{
     padding:25px 0 0;
@@ -343,9 +375,48 @@ content="Connect with creators whose communities, style and values make sense fo
 }
 
 
-/* MOBILE */
+/* =========================================================
+   MOBILE SCROLL FIX
+   ========================================================= */
 
 @media(max-width:700px){
+
+    /*
+       Force normal document scrolling on touch devices.
+       This is the important fix for the mobile problem.
+    */
+
+    html{
+        overflow-x:hidden;
+        overflow-y:auto;
+        height:auto;
+        min-height:100%;
+        touch-action:pan-y;
+        -webkit-overflow-scrolling:touch;
+    }
+
+    body{
+        overflow-x:hidden;
+        overflow-y:auto;
+        height:auto;
+        min-height:100%;
+        touch-action:pan-y;
+        -webkit-overflow-scrolling:touch;
+    }
+
+    .service-page{
+        overflow-x:hidden;
+        overflow-y:visible;
+        height:auto;
+        min-height:100%;
+        touch-action:pan-y;
+        -webkit-overflow-scrolling:touch;
+    }
+
+
+    /* =====================================================
+       HERO
+       ===================================================== */
 
     .service-hero{
         padding:120px 0 65px;
@@ -391,6 +462,10 @@ content="Connect with creators whose communities, style and values make sense fo
     }
 
 
+    /* =====================================================
+       INTRO
+       ===================================================== */
+
     .service-intro-section{
         padding:62px 0;
     }
@@ -408,6 +483,10 @@ content="Connect with creators whose communities, style and values make sense fo
         padding-top:0;
     }
 
+
+    /* =====================================================
+       INCLUDED
+       ===================================================== */
 
     .included-section{
         padding:62px 0 70px;
@@ -447,6 +526,10 @@ content="Connect with creators whose communities, style and values make sense fo
     }
 
 
+    /* =====================================================
+       APPROACH
+       ===================================================== */
+
     .approach-section{
         padding:65px 0;
     }
@@ -469,6 +552,10 @@ content="Connect with creators whose communities, style and values make sense fo
     }
 
 
+    /* =====================================================
+       CTA
+       ===================================================== */
+
     .service-cta{
         padding-top:10px;
     }
@@ -484,6 +571,35 @@ content="Connect with creators whose communities, style and values make sense fo
 
     .service-cta-box .btn{
         margin-top:28px;
+    }
+
+}
+
+
+/* =========================================================
+   TOUCH DEVICE SAFETY
+   ========================================================= */
+
+@media (hover:none) and (pointer:coarse){
+
+    html,
+    body,
+    .service-page{
+        touch-action:pan-y;
+    }
+
+}
+
+
+/* =========================================================
+   REDUCE MOTION
+   ========================================================= */
+
+@media (prefers-reduced-motion:reduce){
+
+    html,
+    body{
+        scroll-behavior:auto;
     }
 
 }
@@ -505,7 +621,8 @@ content="Connect with creators whose communities, style and values make sense fo
 <div class="wrap nav">
 
 <a class="logo logo-image" href="../index.html">
-<img src="../assets/vdo-logo.png"
+<img
+src="../assets/vdo-logo.png"
 alt="V DO MARKETING — U do Business, V do Marketing">
 </a>
 
@@ -541,7 +658,9 @@ Let’s talk
 <main>
 
 
-<!-- HERO -->
+<!-- =========================================================
+     HERO
+     ========================================================= -->
 
 <section class="service-hero">
 
@@ -592,7 +711,9 @@ TRUST<br>
 </section>
 
 
-<!-- THINKING -->
+<!-- =========================================================
+     THINKING
+     ========================================================= -->
 
 <section class="service-intro-section">
 
@@ -635,7 +756,9 @@ the outcome that matters — not a one-size-fits-all checklist.
 </section>
 
 
-<!-- WHAT'S INCLUDED -->
+<!-- =========================================================
+     WHAT'S INCLUDED
+     ========================================================= -->
 
 <section class="included-section">
 
@@ -782,7 +905,9 @@ creative learnings to make future collaborations stronger.
 </section>
 
 
-<!-- APPROACH -->
+<!-- =========================================================
+     APPROACH
+     ========================================================= -->
 
 <section class="approach-section">
 
@@ -848,7 +973,9 @@ and refine the approach as your business moves forward.
 </section>
 
 
-<!-- FINAL CTA -->
+<!-- =========================================================
+     FINAL CTA
+     ========================================================= -->
 
 <section class="service-cta">
 
@@ -890,7 +1017,6 @@ Start a conversation
 
 <!-- =========================================================
      FOOTER
-     EXISTING FOOTER — LEFT UNCHANGED
      ========================================================= -->
 
 <footer class="footer">
@@ -1001,6 +1127,10 @@ U DO BUSINESS&nbsp;&nbsp; • &nbsp;&nbsp;CREATIVE BY DESIGN
 <div class="page-transition"></div>
 
 
+<!-- =========================================================
+     SCRIPTS
+     ========================================================= -->
+
 <script src="../js/site-config.js"></script>
 
 <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
@@ -1010,6 +1140,7 @@ U DO BUSINESS&nbsp;&nbsp; • &nbsp;&nbsp;CREATIVE BY DESIGN
 <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.18/dist/lenis.min.js"></script>
 
 <script src="../js/main.js"></script>
+
 
 </body>
 </html>
