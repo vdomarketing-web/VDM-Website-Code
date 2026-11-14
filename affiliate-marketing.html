@@ -22,8 +22,17 @@ content="Create an affiliate channel with the right partners, clear incentives a
    AFFILIATE MARKETING — SERVICE PAGE
    ========================================================= */
 
+/*
+   MOBILE SCROLL FIX
+   Do not lock vertical overflow on the entire page.
+*/
+
 .service-page{
-    overflow:hidden;
+    overflow-x:hidden;
+    overflow-y:visible;
+    min-height:100%;
+    touch-action:pan-y;
+    -webkit-overflow-scrolling:touch;
 }
 
 
@@ -208,9 +217,7 @@ content="Create an affiliate channel with the right partners, clear incentives a
     display:flex;
     justify-content:space-between;
     align-items:flex-end;
-
     gap:30px;
-
     margin-bottom:42px;
 }
 
@@ -218,7 +225,6 @@ content="Create an affiliate channel with the right partners, clear incentives a
     font-size:clamp(38px,5vw,66px);
     line-height:.95;
     letter-spacing:-.045em;
-
     margin:14px 0 0;
 }
 
@@ -229,9 +235,7 @@ content="Create an affiliate channel with the right partners, clear incentives a
 
 .included-header p{
     max-width:330px;
-
     color:rgba(255,255,255,.45);
-
     font-size:13px;
     line-height:1.7;
 }
@@ -244,23 +248,18 @@ content="Create an affiliate channel with the right partners, clear incentives a
 .included-grid{
     display:grid;
     grid-template-columns:repeat(2,1fr);
-
     border-top:1px solid rgba(255,255,255,.12);
 }
 
 .included-item{
     min-height:230px;
-
     padding:30px 35px 32px 0;
-
     border-bottom:1px solid rgba(255,255,255,.12);
-
     position:relative;
 }
 
 .included-item:nth-child(odd){
     padding-right:50px;
-
     border-right:1px solid rgba(255,255,255,.12);
 }
 
@@ -270,32 +269,24 @@ content="Create an affiliate channel with the right partners, clear incentives a
 
 .included-item-number{
     display:block;
-
     font-family:'DM Mono',monospace;
-
     font-size:10px;
     letter-spacing:1.5px;
-
     color:var(--orange);
-
     margin-bottom:30px;
 }
 
 .included-item h3{
     font-size:24px;
     letter-spacing:-.025em;
-
     margin:0 0 13px;
 }
 
 .included-item p{
     max-width:500px;
-
     color:rgba(255,255,255,.48);
-
     line-height:1.7;
     font-size:14px;
-
     margin:0;
 }
 
@@ -310,16 +301,13 @@ content="Create an affiliate channel with the right partners, clear incentives a
 
 .approach-top{
     max-width:850px;
-
     margin-bottom:50px;
 }
 
 .approach-top h2{
     font-size:clamp(42px,6vw,76px);
-
     line-height:.95;
     letter-spacing:-.05em;
-
     margin:15px 0 0;
 }
 
@@ -329,17 +317,13 @@ content="Create an affiliate channel with the right partners, clear incentives a
 
 .approach-grid{
     display:grid;
-
     grid-template-columns:repeat(2,1fr);
-
     gap:20px;
 }
 
 .approach-card{
     border:1px solid rgba(255,255,255,.12);
-
     padding:35px;
-
     min-height:250px;
 }
 
@@ -349,18 +333,14 @@ content="Create an affiliate channel with the right partners, clear incentives a
 
 .approach-card h3{
     font-size:25px;
-
     line-height:1.15;
     letter-spacing:-.025em;
-
     margin:18px 0 15px;
 }
 
 .approach-card p{
     color:rgba(255,255,255,.5);
-
     line-height:1.75;
-
     margin:0;
 }
 
@@ -375,24 +355,18 @@ content="Create an affiliate channel with the right partners, clear incentives a
 
 .service-cta-box{
     border:1px solid rgba(255,255,255,.12);
-
     padding:50px;
-
     display:flex;
     align-items:center;
     justify-content:space-between;
-
     gap:40px;
 }
 
 .service-cta-box h2{
     font-size:clamp(36px,5vw,62px);
-
     line-height:.95;
     letter-spacing:-.045em;
-
     margin:14px 0 0;
-
     max-width:750px;
 }
 
@@ -403,11 +377,8 @@ content="Create an affiliate channel with the right partners, clear incentives a
 
 .service-cta-box p{
     max-width:550px;
-
     color:rgba(255,255,255,.5);
-
     line-height:1.7;
-
     margin:18px 0 0;
 }
 
@@ -418,13 +389,48 @@ content="Create an affiliate channel with the right partners, clear incentives a
 
 @media(max-width:700px){
 
+    /*
+       FORCE NORMAL VERTICAL TOUCH SCROLLING
+    */
+
+    html{
+        overflow-x:hidden;
+        overflow-y:auto;
+        height:auto;
+        min-height:100%;
+        touch-action:pan-y;
+        -webkit-overflow-scrolling:touch;
+    }
+
+    body{
+        overflow-x:hidden;
+        overflow-y:auto;
+        height:auto;
+        min-height:100%;
+        touch-action:pan-y;
+        -webkit-overflow-scrolling:touch;
+    }
+
+    .service-page{
+        overflow-x:hidden;
+        overflow-y:visible;
+        height:auto;
+        min-height:100%;
+        touch-action:pan-y;
+        -webkit-overflow-scrolling:touch;
+    }
+
+
+    /* =====================================================
+       HERO
+       ===================================================== */
+
     .service-hero{
         padding:120px 0 65px;
     }
 
     .service-hero-grid{
         grid-template-columns:1fr;
-
         gap:42px;
     }
 
@@ -434,21 +440,17 @@ content="Create an affiliate channel with the right partners, clear incentives a
 
     .service-hero h1{
         font-size:clamp(48px,14vw,72px);
-
         line-height:.94;
     }
 
     .service-intro{
         font-size:15px;
-
         line-height:1.75;
-
         margin-bottom:25px;
     }
 
     .service-visual{
         min-height:320px;
-
         padding:28px;
     }
 
@@ -467,7 +469,9 @@ content="Create an affiliate channel with the right partners, clear incentives a
     }
 
 
-    /* THINKING */
+    /* =====================================================
+       THINKING
+       ===================================================== */
 
     .service-intro-section{
         padding:62px 0;
@@ -475,7 +479,6 @@ content="Create an affiliate channel with the right partners, clear incentives a
 
     .service-intro-grid{
         grid-template-columns:1fr;
-
         gap:38px;
     }
 
@@ -488,7 +491,9 @@ content="Create an affiliate channel with the right partners, clear incentives a
     }
 
 
-    /* INCLUDED */
+    /* =====================================================
+       INCLUDED
+       ===================================================== */
 
     .included-section{
         padding:62px 0 70px;
@@ -496,7 +501,6 @@ content="Create an affiliate channel with the right partners, clear incentives a
 
     .included-header{
         display:block;
-
         margin-bottom:32px;
     }
 
@@ -515,11 +519,8 @@ content="Create an affiliate channel with the right partners, clear incentives a
     .included-item,
     .included-item:nth-child(odd),
     .included-item:nth-child(even){
-
         min-height:auto;
-
         padding:25px 0;
-
         border-right:0;
     }
 
@@ -532,7 +533,9 @@ content="Create an affiliate channel with the right partners, clear incentives a
     }
 
 
-    /* APPROACH */
+    /* =====================================================
+       APPROACH
+       ===================================================== */
 
     .approach-section{
         padding:65px 0;
@@ -552,12 +555,13 @@ content="Create an affiliate channel with the right partners, clear incentives a
 
     .approach-card{
         min-height:auto;
-
         padding:28px 24px;
     }
 
 
-    /* CTA */
+    /* =====================================================
+       CTA
+       ===================================================== */
 
     .service-cta{
         padding-top:10px;
@@ -565,7 +569,6 @@ content="Create an affiliate channel with the right partners, clear incentives a
 
     .service-cta-box{
         display:block;
-
         padding:32px 24px;
     }
 
@@ -575,6 +578,35 @@ content="Create an affiliate channel with the right partners, clear incentives a
 
     .service-cta-box .btn{
         margin-top:28px;
+    }
+
+}
+
+
+/* =========================================================
+   TOUCH DEVICE SAFETY
+   ========================================================= */
+
+@media (hover:none) and (pointer:coarse){
+
+    html,
+    body,
+    .service-page{
+        touch-action:pan-y;
+    }
+
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+   ========================================================= */
+
+@media (prefers-reduced-motion:reduce){
+
+    html,
+    body{
+        scroll-behavior:auto;
     }
 
 }
@@ -991,9 +1023,7 @@ Bring us the ambition. We'll bring the ideas and the execution.
 
 
 <a class="btn primary" href="../contact.html">
-
 Start a conversation
-
 </a>
 
 </div>
@@ -1007,7 +1037,7 @@ Start a conversation
 
 
 <!-- =========================================================
-     FOOTER — UNCHANGED
+     FOOTER
      ========================================================= -->
 
 <footer class="footer">
@@ -1050,7 +1080,7 @@ About
 </a>
 
 <a href="../blog.html">
-Blogs & FAQ's 
+Blogs & FAQ's
 </a>
 
 <a href="../contact.html">
@@ -1117,6 +1147,10 @@ U DO BUSINESS&nbsp;&nbsp; • &nbsp;&nbsp;CREATIVE BY DESIGN
 
 <div class="page-transition"></div>
 
+
+<!-- =========================================================
+     SCRIPTS
+     ========================================================= -->
 
 <script src="../js/site-config.js"></script>
 
